@@ -5,6 +5,8 @@ const handlebars = require('handlebars')
 
 const app = express()
 
+
+
 app.use(express.static(__dirname + '/public'))
 
 // View Engine
@@ -21,17 +23,8 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 // Route
-app.get('/', (req, res) => {
-	if (true) {
-		res.render('login', {
-			title: 'Welcome to Login',
-			css: ['main.min.css', 'login.min.css'],
-            greeting: 'Hello'
-		})
-	} else {
-		res.render('register')
-	}
-})
+const mainRoute = require('./routes/mainRoute')
+app.use('/', mainRoute)
 
 const port = process.env.PORT || 5000
 
