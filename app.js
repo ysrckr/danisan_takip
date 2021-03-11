@@ -1,13 +1,22 @@
 const express = require('express')
-
+const dotenv = require('dotenv')
 const hbs = require('express-handlebars')
 const handlebars = require('handlebars')
+const db = require('./config/db')
+
+// Env Vars
+dotenv.config()
+
+// Connection to Database
+db()
 
 const app = express()
 
 
 
+
 app.use(express.static(__dirname + '/public'))
+
 
 // View Engine
 app.engine('.hbs', hbs({ extname: '.hbs' }))
@@ -21,6 +30,8 @@ handlebars.registerPartial('footer', 'footer.hbs')
 // Express Middleware
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+
+
 
 // Route
 const mainRoute = require('./routes/mainRoute')
