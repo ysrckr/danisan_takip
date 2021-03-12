@@ -12,17 +12,12 @@ db()
 
 const app = express()
 
-
-
-
 app.use(express.static(__dirname + '/public'))
-
 
 // View Engine
 app.engine('.hbs', hbs({ extname: '.hbs' }))
 app.set('view engine', '.hbs')
-app.set('views', __dirname + '/public/views') 
-
+app.set('views', __dirname + '/public/views')
 
 handlebars.registerPartial('header', 'header.hbs')
 handlebars.registerPartial('footer', 'footer.hbs')
@@ -30,8 +25,6 @@ handlebars.registerPartial('footer', 'footer.hbs')
 // Express Middleware
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-
-
 
 // Route
 const mainRoute = require('./routes/mainRoute')

@@ -17,6 +17,9 @@ const ClientDetailsSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+	bki: {
+		type: Number
+	},
 	basal: {
 		type: Number,
 	},
@@ -40,6 +43,9 @@ const ClientDetailsSchema = new mongoose.Schema({
 	},
 	bodyFat: {
 		type: Number,
+	},
+	diet: {
+		type: String
 	},
 	measurement_date: {
 		type: Date,
