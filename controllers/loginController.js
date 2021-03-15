@@ -1,8 +1,10 @@
-exports.loginController = (req, res, next) => {
+const loginController = (req, res, next) => {
 	res.render('login', {
 		title: 'Welcome to Login',
-		loginHeader: 'Login',
+		mainHeader: 'Login',
 		css: ['main.min.css', 'login.min.css'],
 		javascript: ['index.js'],
 	})
 }
+
+module.exports = {loginController}

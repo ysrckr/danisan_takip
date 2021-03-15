@@ -1,0 +1,47 @@
+#navbar {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	background: blue;
+	.header {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+	}
+	img {
+		margin: 20px 20px 20px 20px;
+		width: 45px;
+		height: 45px;
+	}
+	p {
+		color: white;
+	}
+}
+
+#main {
+	#section-a {
+		.form-container {
+			max-width: 80%;
+			margin: 50px auto;
+			padding: 10px 10px 30px 10px;
+			border: 1px solid rgba($color: black, $alpha: 0.6);
+			box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+			.login-header {
+				margin-bottom: 40px;
+				margin-top: 30px;
+				text-align: center;
+				font-weight: 700;
+				font-size: 2rem;
+			}
+			form {
+				display: flex;
+				flex-direction: column;
+				input {
+					margin: 10px auto;
+					padding: 10px 30px;
+					border: none;
+				}
+			}
+		}
+	}
+}
