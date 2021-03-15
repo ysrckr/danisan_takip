@@ -1,9 +1,19 @@
-<div id="navbar">
-    <img src="../img/pngwing.com.png" alt="logo">
-    <p>Danisan Takip</p>
-</div>
+<nav id="navbar">
+    <div class="header"><img src="../img/pngwing.com.png" alt="logo">
+    <p>Danisan Takip</p></div>
+    <div class="navlink">
+        <a href="#"><p>Register</p></a>
+    </div>
+</nav>
 <main id="main">
-<section id="section-a">
-    <h1>{{greeting}}</h1>
-</section>
+    <section id="section-a">
+        <div class="form-container">
+            <div class="login-header">{{loginHeader}}</div>
+            <form class="form-login">
+                <input type="email" name="email" placeholder="Email">
+                <input type="password" name="password" placeholder="Password">
+                <input type="submit" value="Login">
+            </form>
+        </div>
+    </section>
 </main>
