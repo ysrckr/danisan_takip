@@ -2,6 +2,7 @@ const express = require('express')
 const dotenv = require('dotenv')
 const hbs = require('express-handlebars')
 const handlebars = require('handlebars')
+const cors = require('cors')
 const db = require('./config/db')
 
 // Env Vars
@@ -11,6 +12,7 @@ dotenv.config()
 db()
 
 const app = express()
+app.use(cors())
 
 app.use(express.static(__dirname + '/public'))
 

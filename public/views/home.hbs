@@ -10,18 +10,12 @@
                     <th>Last Name</th>
                     <th></th>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Yasar</td>
-                    <td>Cakir</td>
-                    <td><a href="#" class="btn btn-primary">Detay</a></td>
-                </tr>
                 {{#each client}}
                 <tr>
-                    <td>{{clientNo}}</td>
-                    <td>{{client.firstName}}</td>
-                    <td>{{client.lastName}}</td>
-                    <td><a href="/clients/{{client.id}}" class="btn btn-primary">Detay</a></td>
+                    <td>{{id}}</td>
+                    <td>{{firstName}}</td>
+                    <td>{{lastName}}</td>
+                    <td><a href="/clients/{{id}}" class="btn btn-primary">Detay</a></td>
                 </tr>
                 {{/each}}
             </table>
