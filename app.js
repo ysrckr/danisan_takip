@@ -26,9 +26,12 @@ handlebars.registerPartial('footer', 'footer.hbs')
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-// Route
+// Routes
 const mainRoute = require('./routes/mainRoute')
 app.use('/', mainRoute)
+
+const clientsRoute = require('./routes/clientsRoute')
+app.use('/clients', clientsRoute)
 
 const port = process.env.PORT || 5000
 

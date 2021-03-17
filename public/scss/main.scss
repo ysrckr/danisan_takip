@@ -6,8 +6,6 @@
 	box-sizing: border-box;
 }
 
-
-
 // Link
 
 a {
@@ -18,7 +16,26 @@ a {
 // Input
 
 input {
-	background: rgba($color: #efefef, $alpha: 1.0);
+	background: rgba($color: #efefef, $alpha: 1);
+}
+
+// Table
+table {
+	margin: 10px 5px 10px 10px;
+	width: 90%;
+
+	td {
+		text-align: center;
+	}
+
+	a {
+		text-align: center;
+	}
+
+	.btn {
+		padding: 7px;
+		margin-left: 5px;
+	}
 }
 
 // Button
@@ -41,7 +58,6 @@ input {
 #main {
 	min-height: 65vh;
 }
-
 
 // Footer
 #main-footer {
