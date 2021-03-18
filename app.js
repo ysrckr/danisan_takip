@@ -11,7 +11,10 @@ dotenv.config()
 // Connection to Database
 db()
 
+// Initilize Express
 const app = express()
+
+// Cors
 app.use(cors())
 
 app.use(express.static(__dirname + '/public'))
@@ -24,7 +27,7 @@ app.set('views', __dirname + '/public/views')
 handlebars.registerPartial('header', 'header.hbs')
 handlebars.registerPartial('footer', 'footer.hbs')
 
-// Express Middleware
+// Express Middlewares
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
@@ -35,6 +38,12 @@ app.use('/', mainRoute)
 const clientsRoute = require('./routes/clientsRoute')
 app.use('/clients', clientsRoute)
 
+const calculatorRoute = require('./routes/calculatorRoute')
+app.use('/calculator', calculatorRoute)
+
+
+
+// Listening
 const port = process.env.PORT || 5000
 
 app.listen(port, () => {

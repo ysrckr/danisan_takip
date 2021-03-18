@@ -1,5 +1,5 @@
 const { client } = require('./clientController')
-console.log(client)
+
 
 const homeController = (req, res, next) => {
 	res.render('home', {
