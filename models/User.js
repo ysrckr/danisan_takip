@@ -20,7 +20,7 @@ const UserSchema = new mongoose.Schema({
 	},
 	client_id: [
 		{
-			type: ObjectId,
+			type: mongoose.ObjectId,
 			ref: 'Client',
 		},
 	],

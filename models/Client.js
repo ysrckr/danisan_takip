@@ -15,12 +15,12 @@ const ClientSchema = new mongoose.Schema({
 	},
 	user_id: 
 		{
-			type: ObjectId,
+			type: mongoose.ObjectId,
 			ref: 'User',
 		},
     client_details_id: [
         {
-            type: ObjectId,
+            type: mongoose.ObjectId,
             ref:'ClientDetails'
 
         }
