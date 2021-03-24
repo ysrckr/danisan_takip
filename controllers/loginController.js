@@ -1,6 +1,5 @@
 const validator = require('validator')
-const bcrypt = require('bcryptjs')
-const UserSchema = require('../models/User')
+const User = require('../classes/User')
 
 const loginController = (req, res, next) => {
 	res.render('login', {
@@ -11,17 +10,24 @@ const loginController = (req, res, next) => {
 	})
 }
 
-const loginValidator = async (req,res,next) => {
-	if (validator.isEmail(req.body.email) && validator.isAlphanumeric(req.body.password)) {
-		const user = await UserSchema.findOne({email: req.body.email})
-		if ( await bcrypt.compare(req.body.password, user.password)) {
-			res.json('Logged in')
+const loginValidator = async (req, res, next) => {
+	if (
+		validator.isEmail(req.body.email) &&
+		validator.isAlphanumeric(req.body.password)
+	) {
+		const user = new User()
+		const response = await user.findUserByEmail(
+			req.body.email,
+			req.body.password
+		)
+		if (typeof response !== 'string') {
+			res.status(200).json(response)
 		} else {
-			res.json('Wronggg')
+			res.status(401).json(response)
 		}
 	} else {
 		res.json('please enter email and password')
 	}
 }
 
-module.exports = {loginController, loginValidator}
+module.exports = { loginController, loginValidator }
