@@ -23,7 +23,7 @@ const UserSchema = new mongoose.Schema({
 			type: mongoose.ObjectId,
 			ref: 'Client',
 		},
-	],
+	]
 })
 
 module.exports = mongoose.model('User', UserSchema)

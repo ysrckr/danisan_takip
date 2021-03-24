@@ -1,15 +1,18 @@
 <nav id="navbar">
     <div class="header"><img src="../img/pngwing.com.png" alt="logo">
-    <p>Danisan Takip</p></div>
+        <p>Danisan Takip</p>
+    </div>
     <div class="navlink">
-        <a href="#"><p>Register</p></a>
+        <a href="#">
+            <p>Register</p>
+        </a>
     </div>
 </nav>
 <main id="main">
     <section id="section-a">
         <div class="form-container">
             <div class="login-header">{{mainHeader}}</div>
-            <form class="form-login">
+            <form class="form-login" method="POST" action="/login">
                 <input type="email" name="email" placeholder="Email">
                 <input type="password" name="password" placeholder="Password">
                 <button type="submit" class='btn btn-primary'>Login</button>

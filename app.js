@@ -19,6 +19,7 @@ const app = express()
 //Session
 app.use(
 	session({
+		name: 'ssid',
 		secret: process.env.SESSION_SECRET,
 		resave: true,
 		saveUninitialized: true,
