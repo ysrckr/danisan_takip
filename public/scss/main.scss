@@ -53,6 +53,38 @@ table {
 	color: $secondary-color;
 }
 
+// navbar
+#navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: blue;
+	.header {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+	}
+	.navlink {
+		margin-right: 20px;
+		button {
+			border: none;
+			color: white;
+			background: rgba(255, 255, 255, 0);
+			font-weight: 700;
+			&:hover {
+				cursor: hand;
+			}
+		}
+	}
+	img {
+		margin: 20px 20px 20px 20px;
+		width: 45px;
+		height: 45px;
+	}
+	p {
+		color: white;
+	}
+}
 // Main
 
 #main {
