@@ -1,0 +1,33 @@
+{{>navbar}}
+
+<main id="main">
+    <section id="section-a">
+        <div class="form-container">
+            <form action="/clients/new" method="post" class="new-client-form">
+                <input type="text" name="firstName" placeholder="First Name">
+                <input type="text" name="lastName" placeholder="Last Name">
+                <input type="number" name="weight" placeholder="Weight(kg)" step="0.01" min="0">
+                <input type="number" name="height" placeholder="Height(cm)" step="0" min="0">
+                <input type="number" name="age" placeholder="Age" step="0" min="0">
+                <select name="gender">
+                    <option value="disabled" disabled checked>Choose a gender</option>
+                    <option value="female">Female</option>
+                    <option value="male">Male</option>
+                </select>
+                <input type="number" name="neck" placeholder="Neck(cm)" step="0.1" min="0">
+                <input type="number" name="waist" placeholder="Waist(cm)" step="0.1" min="0">
+                <input type="number" name="hip" placeholder="Hip(cm)" step="0.1" min="0">
+                <input type="number" name="abdomen" placeholder="Abdomen(cm)" step="0.1" min="0">
+                <select name="activity">
+                    <option value="disabled" disabled checked>Choose activity intensity</option>
+                    <option value="light activity">Light Activity</option>
+                    <option value="normal activity">Normal Activity</option>
+                    <option value="high activity">High Activity</option>
+                    <option value="very high activity">Very High Activity</option>
+                </select>
+                <input type="file">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+        </div>
+    </section>
+</main>

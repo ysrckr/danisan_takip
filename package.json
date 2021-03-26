@@ -31,8 +31,6 @@
     "express-session": "^1.17.1",
     "handlebars": "^4.7.7",
     "mongoose": "^5.11.19",
-    "passport": "^0.4.1",
-    "passport-local": "^1.0.0",
     "validator": "^13.5.2"
   }
 }

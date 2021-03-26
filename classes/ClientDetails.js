@@ -131,13 +131,13 @@ class ClientDetails {
 
 	calculateEnergyNeed() {
 		switch (this.activity) {
-			case 'Light Activity':
+			case 'light activity':
 				return this.calculateBasal() * 1.2
-			case 'Normal Activity':
+			case 'normal activity':
 				return this.calculateBasal() * 1.4
-			case 'High Activity':
+			case 'high activity':
 				return this.calculateBasal() * 1.6
-			case 'Very High Activity':
+			case 'very high activity':
 				return this.calculateBasal() * 1.8
 			default:
 				return this.calculateBasal()
@@ -146,13 +146,13 @@ class ClientDetails {
 
 	calculateBodyFat() {
 		switch (this.gender) {
-			case 'Male':
+			case 'male':
 				return (
 					86.01 * Math.log10(this.toInchAbdomen() - this.toInchNeck()) -
 					70.041 * Math.log10(this.toInchHeight()) +
 					36.76
 				)
-			case 'Female':
+			case 'female':
 				return (
 					Math.log10(
 						this.toInchWaist() + this.toInchHip() - this.toInchNeck()

@@ -24,7 +24,6 @@ const loginValidator = async (req, res, next) => {
 			const response = await user.findUserByEmail(email, password)
 			if (typeof response !== 'string') {
 				req.session.user = response._id
-				res.status(200)
 				res.redirect('/')
 
 			} else {

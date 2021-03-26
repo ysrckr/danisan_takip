@@ -1,0 +1,24 @@
+#main {
+	#section-a {
+		.form-container {
+			.new-client-form {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				align-items: center;
+				height: 100%;
+				margin: 30px;
+				input {
+					margin-bottom: 15px;
+					margin-right: 5px;
+					padding: 5px 10px 5px 10px;
+				}
+				select {
+					margin-bottom: 15px;
+					margin-right: 5px;
+					padding: 5px 10px 5px 10px;
+				}
+			}
+		}
+	}
+}
