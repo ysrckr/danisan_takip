@@ -6,6 +6,8 @@ const handlebars = require('handlebars')
 const cors = require('cors')
 const db = require('./config/db')
 const store = require('./config/store')
+const fileUpload = require('express-fileupload')
+const path = require('path')
 
 
 // Env Vars
@@ -17,6 +19,10 @@ db()
 // Initilize Express
 const app = express()
 
+//File Upload
+app.use(fileUpload({
+	path: path.join(__dirname, '/uploads')
+}))
 //Session
 app.use(
 	session({

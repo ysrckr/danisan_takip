@@ -3,7 +3,7 @@
 <main id="main">
     <section id="section-a">
         <div class="form-container">
-            <form action="/clients/new" method="post" class="new-client-form">
+            <form action="/clients/new" method="post" class="new-client-form" envtype="multipart/form-data">
                 <input type="text" name="firstName" placeholder="First Name">
                 <input type="text" name="lastName" placeholder="Last Name">
                 <input type="number" name="weight" placeholder="Weight(kg)" step="0.01" min="0">
@@ -25,7 +25,7 @@
                     <option value="high activity">High Activity</option>
                     <option value="very high activity">Very High Activity</option>
                 </select>
-                <input type="file">
+                <input type="file" name="dietList">
                 <button type="submit" class="btn btn-primary">Save</button>
             </form>
         </div>

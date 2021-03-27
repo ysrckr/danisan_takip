@@ -48,7 +48,16 @@ class ClientDetails {
 	}
 
 	calculateIdealWeight() {
-		return 22 * Math.pow(this.convertHeight(), 2)
+		if(this.age <= 25) {
+			return 21 * Math.pow(this.convertHeight(), 2)
+		} else if(this.age > 25 && this.age <= 35) {
+			return 22 * Math.pow(this.convertHeight(), 2)
+		} else if(this.age > 35 && this.age <= 45) {
+			return 23 * Math.pow(this.convertHeight(), 2)
+		} else {
+			return 24 * Math.pow(this.convertHeight(), 2)
+		}
+		
 	}
 
 	calculateCorrectedWeight() {
