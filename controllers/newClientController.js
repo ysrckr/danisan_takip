@@ -29,7 +29,6 @@ const newClientSave = async (req, res, next) => {
 		const response = await client.createClient()
 		if (response) {
 			res.status(201)
-			
 		} else {
 			res.status(500).json({
 				msg: 'Error creating client',
