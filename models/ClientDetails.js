@@ -9,22 +9,28 @@ const ClientDetailsSchema = new mongoose.Schema({
 		type: Number,
 		required: true,
 	},
-    age: {
-        type: Number,
-        required: true
-    },
-    gender: {
-        type: String,
-        required: true
-    },
+	age: {
+		type: Number,
+		required: true,
+	},
+	gender: {
+		type: String,
+		required: true,
+	},
 	bki: {
-		type: Number
+		type: Number,
+	},
+	correctedWeight: {
+		type: Number,
+	},
+	idealWeight: {
+		type: Number,
 	},
 	basal: {
 		type: Number,
 	},
 	activity: {
-		type: Number,
+		type: String,
 	},
 	energyNeed: {
 		type: Number,
@@ -45,17 +51,16 @@ const ClientDetailsSchema = new mongoose.Schema({
 		type: Number,
 	},
 	diet: {
-		type: String
+		type: String,
 	},
 	measurement_date: {
 		type: Date,
 		default: Date.now,
 	},
-	client_id: 
-		{
-			type: mongoose.ObjectId,
-			ref: 'Client',
-		}
+	client_id: {
+		type: mongoose.ObjectId,
+		ref: 'Client',
+	},
 })
 
 module.exports = mongoose.model('ClientDetails', ClientDetailsSchema)

@@ -31,6 +31,16 @@ class Client {
 			return errMsg
 		}
 	}
+	async addDetailsId(id, details_id) {
+		try {
+			await ClientSchema.updateOne(
+				{ _id: id },
+				{ $push: { client_details_id: details_id } }
+			)
+		} catch (err) {
+			return err.message
+		}
+	}
 }
 
 module.exports = Client

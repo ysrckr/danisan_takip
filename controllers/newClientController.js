@@ -23,11 +23,15 @@ const newClientSave = async (req, res, next) => {
 	const activity = req.body.activity
 	const dietList = req.body.dietList
 	const userId = req.session.user
-
+	
 	try {
 		const client = new Client(firstName, lastName, userId)
 		const response = await client.createClient()
 		if (response) {
+			const client_id = response._id
+			const details = new ClientDetails(weight, height, age, gender, activity, abdomen, neck, waist, hip, dietList)
+			const detailResponse = await details.newDetails(client_id)
+			await client.addDetailsId(client_id, detailResponse._id)
 			res.status(201)
 		} else {
 			res.status(500).json({

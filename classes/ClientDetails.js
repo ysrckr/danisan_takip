@@ -1,3 +1,5 @@
+const ClientDetailsSchema = require('../models/ClientDetails')
+const ClientSchema = require('../models/Client')
 class ClientDetails {
 	constructor(
 		weight,
@@ -8,7 +10,8 @@ class ClientDetails {
 		abdomen = 0,
 		neck = 0,
 		waist = 0,
-		hip = 0
+		hip = 0,
+		dietList = ''
 	) {
 		;(this.weight = weight),
 			(this.height = height),
@@ -18,7 +21,8 @@ class ClientDetails {
 			(this.abdomen = abdomen),
 			(this.neck = neck),
 			(this.waist = waist),
-			(this.hip = hip)
+			(this.hip = hip),
+			(this.dietList = dietList)
 	}
 
 	// Convertions
@@ -44,20 +48,19 @@ class ClientDetails {
 
 	// Calculations
 	calculateBki() {
-		return weight / Math.pow(this.convertHeight(), 2)
+		return this.weight / Math.pow(this.convertHeight(), 2)
 	}
 
 	calculateIdealWeight() {
-		if(this.age <= 25) {
+		if (this.age <= 25) {
 			return 21 * Math.pow(this.convertHeight(), 2)
-		} else if(this.age > 25 && this.age <= 35) {
+		} else if (this.age > 25 && this.age <= 35) {
 			return 22 * Math.pow(this.convertHeight(), 2)
-		} else if(this.age > 35 && this.age <= 45) {
+		} else if (this.age > 35 && this.age <= 45) {
 			return 23 * Math.pow(this.convertHeight(), 2)
 		} else {
 			return 24 * Math.pow(this.convertHeight(), 2)
 		}
-		
 	}
 
 	calculateCorrectedWeight() {
@@ -69,7 +72,7 @@ class ClientDetails {
 
 	calculateBasal() {
 		switch (this.gender) {
-			case 'Male':
+			case 'male':
 				if (this.calculateBki() >= 25) {
 					if (this.age < 3) {
 						return 59.512 * this.calculateCorrectedWeight() - 30.4
@@ -100,7 +103,7 @@ class ClientDetails {
 					}
 				}
 				break
-			case 'Female':
+			case 'female':
 				if (this.calculateBki() >= 25) {
 					if (this.age < 3) {
 						return 58.317 * this.calculateCorrectedWeight() - 31.1
@@ -172,6 +175,30 @@ class ClientDetails {
 			default:
 				return 0
 		}
+	}
+	async newDetails(client_id) {
+		const client = await ClientSchema.findById(client_id)
+		const details = new ClientDetailsSchema({
+			weight: this.weight,
+			height: this.convertHeight(),
+			age: this.age,
+			gender: this.gender,
+			bki: this.calculateBki(),
+			correctedWeight: this.calculateCorrectedWeight(),
+			idealWeight: this.calculateIdealWeight(),
+			basal: this.calculateBasal(),
+			activity: this.activity,
+			energyNeed: this.calculateEnergyNeed(),
+			abdomen: this.abdomen,
+			neck: this.neck,
+			waist: this.waist,
+			hip: this.hip,
+			bodyFat: this.calculateBodyFat(),
+			diet: this.dietList,
+			client_id: client._id,
+		})
+		const response = await details.save()
+		return response
 	}
 }
 
