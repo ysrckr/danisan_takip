@@ -30,4 +30,14 @@
             </form>
         </div>
     </section>
+    {{#if client}}
+    <section id="section-b">
+        <div class="display-info">
+            <p class="name-tag">
+                {{client.firstName}} {{client.lastName}} is added as a new client.
+            </p>
+            <a href="/clients/new" class="btn btn-primary">OK</a>
+        </div>
+    </section>
+    {{/if}}
 </main>

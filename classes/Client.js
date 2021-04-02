@@ -41,6 +41,9 @@ class Client {
 			return err.message
 		}
 	}
+	async displayNewClient(id) {
+		return await ClientSchema.findById(id)
+	}
 }
 
 module.exports = Client

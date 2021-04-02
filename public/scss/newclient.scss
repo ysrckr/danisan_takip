@@ -21,4 +21,33 @@
 			}
 		}
 	}
+
+	#section-b {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		background-color: rgba(#efefef, 0.5);
+		.display-info {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: space-around;
+			margin: 50% auto;
+			height: 300px;
+			width: 200px;
+			border-radius: 5%;
+			background-color: grey;
+			color: white;
+			.name-tag {
+				margin-left: 10px;
+			}
+			a {
+				margin-top: 30px;
+				text-align: center;
+				border-radius: 5%;
+			}
+		}
+	}
 }
