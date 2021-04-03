@@ -16,13 +16,17 @@
                     <th>Last Name</th>
                     <th></th>
                 </tr>
-                {{#each clients as | client |}}
+                {{#each clients}}
+                {{#each this}}
+                {{#if firstName}}
                 <tr>
-                    <td>{{@index}}</td>
-                    <td>{{this}}</td>
+                    <td>{{no}}</td>
+                    <td>{{firstName}}</td>
                     <td>{{lastName}}</td>
-                    <td><a href="/clients/{{id}}" class="btn btn-primary">Detay</a></td>
+                    <td><a href="/clients/{{_id}}" class="btn btn-primary">Detay</a></td>
                 </tr>
+                {{/if}}
+                {{/each}}
                 {{/each}}
             </table>
         </div>

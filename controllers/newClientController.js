@@ -26,6 +26,7 @@ const newClientSave = async (req, res, next) => {
 
 	try {
 		const client = new Client(firstName, lastName, userId)
+		// response = db client
 		const response = await client.createClient()
 		if (response) {
 			const client_id = response._id
@@ -48,7 +49,11 @@ const newClientSave = async (req, res, next) => {
 				title: 'New Client',
 				css: ['main.min.css', 'newclient.min.css'],
 				javascript: ['index.js'],
-				client: { firstName: client.firstName, lastName: client.lastName },
+				client: {
+					firstName: client.firstName,
+					lastName: client.lastName,
+					id: `/clients/${response._id}`,
+				},
 			})
 		} else {
 			res.status(500).json({

@@ -7,13 +7,12 @@ const homeController = async (req, res, next) => {
 		.where('_id')
 		.in(user.client_id)
 		.exec()
-	console.log(clients)
 	res.render('home', {
 		title: 'Danisan Takip | Welcome',
 		css: ['main.min.css', 'home.min.css'],
 		javascript: ['index.js'],
 		user: { name: user.name },
-		clients
+		clients,
 	})
 }
 
