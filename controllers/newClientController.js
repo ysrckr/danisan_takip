@@ -10,8 +10,8 @@ const newClient = (req, res, next) => {
 }
 
 const newClientSave = async (req, res, next) => {
-	const firstName = req.body.firstName.trim()
-	const lastName = req.body.lastName.trim()
+	const firstName = req.body.firstName.trim().toUpperCase()
+	const lastName = req.body.lastName.trim().toUpperCase()
 	const weight = req.body.weight.trim()
 	const height = req.body.height.trim()
 	const age = req.body.age.trim()
@@ -27,7 +27,6 @@ const newClientSave = async (req, res, next) => {
 	try {
 		const client = new Client(firstName, lastName, userId)
 		const response = await client.createClient()
-		req.session.client = response._id
 		if (response) {
 			const client_id = response._id
 			const details = new ClientDetails(

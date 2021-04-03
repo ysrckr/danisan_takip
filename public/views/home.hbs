@@ -16,10 +16,10 @@
                     <th>Last Name</th>
                     <th></th>
                 </tr>
-                {{#each client}}
+                {{#each clients as | client |}}
                 <tr>
-                    <td>{{id}}</td>
-                    <td>{{firstName}}</td>
+                    <td>{{@index}}</td>
+                    <td>{{this}}</td>
                     <td>{{lastName}}</td>
                     <td><a href="/clients/{{id}}" class="btn btn-primary">Detay</a></td>
                 </tr>

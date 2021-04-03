@@ -12,7 +12,7 @@ class User {
 		} else {
 			let hashed = await bcrypt.hash(this.password, 10)
 			this.user = new UserSchema({
-				name: this.name,
+				name: this.name.toUpperCase(),
 				email: this.email,
 				password: hashed,
 			})

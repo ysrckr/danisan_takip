@@ -1,17 +1,3 @@
-const client = [
-	{ id: 1, firstName: 'Murat', lastName: 'Kurat' },
-	{
-		id: 2,
-		firstName: 'Yasar',
-		lastName: 'Cakir',
-	},
-	{
-		id: 3,
-		firstName: 'Ahmet',
-		lastName: 'Mehmet',
-	},
-]
-
 const clientController = (req, res, next) => {
 	let i = req.params.id - 1
 	if (req.params.id == client[i].id) {
@@ -25,4 +11,4 @@ const clientController = (req, res, next) => {
 		res.status(404).redirect('/')
 	}
 }
-module.exports = { client, clientController }
+module.exports = { clientController }

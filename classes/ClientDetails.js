@@ -166,10 +166,10 @@ class ClientDetails {
 				)
 			case 'female':
 				return (
-					Math.log10(
+					(163.205 * Math.log10(
 						this.toInchWaist() + this.toInchHip() - this.toInchNeck()
-					) -
-					97.684 * Math.log10(this.toInchHeight()) -
+					))-
+					(97.684 * Math.log10(this.toInchHeight())) -
 					78.387
 				)
 			default:
